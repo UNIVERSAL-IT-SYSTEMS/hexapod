@@ -1,0 +1,26 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+
+</head>
+<body>
+    <h1>Hexapet Control</h1>
+    <div id="future"></div>
+    <button onclick="move('forward')">Walk</button>
+    <button onclick="move('crawl')">Crawl</button>
+    <button onclick="move('stop')">Stop</button>
+    <button onclick="move('turnLeft')">Turn Left</button>
+    <button onclick="move('turnRight')">Turn Right</button>
+    <button onclick="move('stand')">Stand</button>
+    <button onclick="move('sleep')">Sleep</button>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io.connect('<IP ADDRESS:1337>');
+
+        function move(command) {
+            socket.emit('move', command);
+        }
+    </script>
+</body>
+</html>
