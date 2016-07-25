@@ -39,6 +39,7 @@ reason we patch is because the change hasn't made it to the node-chakracore repo
 
 ### Prepare the code
 
+#### phoenix.js
 * Clone this repository and go to the root in a command window
 * Copy [phoenix.js](https://github.com/rwaldron/javascript-robotics/blob/master/Buck.Animation/phoenix.js) to your clone root
 * Open phoenix.js in a editor and make the following changes:
@@ -47,11 +48,18 @@ reason we patch is because the change hasn't made it to the node-chakracore repo
   * Optionally add the code in [server.js](./server.js) if you want to send commands to the hexapod through a simple Express server. If you do this,
     also add the IP address of your Pi to [index.html](./index.html)
 * Run `npm install --target_arch=arm`
-* Use [File Explorer](https://developer.microsoft.com/en-us/windows/iot/win10/samples/smb) to copy the clone to the Raspberry Pi
-  to c:\hexapod.
+
+#### win-io
+* Copy [constants.js](https://github.com/BrianGenisio/win-io/blob/master/lib/constants.js) to \<clone root\>\node_modules\win-io\lib
+* Copy [win-io.js](https://github.com/BrianGenisio/win-io/blob/master/lib/win-io.js) to \<clone root\>\node_modules\win-io\lib
+* Follow instructions in [patch.js](./patch.js) to modify win-io.js
+* Run `npm install sleep --target_arch=arm`
+
 
 ### Run phoenix.js
 
+* Use [File Explorer](https://developer.microsoft.com/en-us/windows/iot/win10/samples/smb) to copy the clone to the Raspberry Pi
+  to c:\hexapod.
 * Connect to your device with [SSH](https://developer.microsoft.com/en-us/windows/iot/win10/samples/ssh) or 
   [PowerShell](https://developer.microsoft.com/en-us/windows/iot/win10/samples/powershell)
 * Run `netsh advfirewall firewall add rule name="node.js" dir=in action=allow program="C:\nodejs\node.exe" enable=yes` 
