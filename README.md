@@ -10,9 +10,10 @@ attaching the servos to an Arduino, they are attached to servo hats connected to
 with the help of the Johnny-Five [IO Plugin](https://github.com/rwaldron/io-plugins) feature.
 
 * [Lynxmotion Phoenix](http://www.lynxmotion.com/p-947-phoenix-3dof-hexapod-no-electronics.aspx)
-* 2 Adafruit 16-Channel PWM/Servo Hats (In this project 2 are used for the 18 servos to fit)
+* 2 [Adafruit 16-Channel PWM/Servo Hats](https://www.adafruit.com/products/2327) (In this project 2 are used for the 18 servos to fit)
 * SINOLLC DC 12V 24V to 5V 10A 50W Converter Step Down Regulator
 * Raspberry Pi 2 with [Windows IoT Core](https://developer.microsoft.com/en-us/windows/iot/Downloads)
+* [11.1v 2200mAh Battery Pack](https://www.amazon.com/gp/product/B0072AEY5I)
 
 ## Software
 
@@ -52,7 +53,7 @@ reason we patch is because the change hasn't made it to the node-chakracore repo
 #### win-io
 * Copy [constants.js](https://github.com/BrianGenisio/win-io/blob/master/lib/constants.js) to \<clone root\>\node_modules\win-io\lib
 * Copy [win-io.js](https://github.com/BrianGenisio/win-io/blob/master/lib/win-io.js) to \<clone root\>\node_modules\win-io\lib
-* Follow instructions in [patch.js](./patch.js) to modify win-io.js
+* Follow instructions in [patch.js](./node_modules/win-io/patch.js) to modify win-io.js
 * Run `npm install sleep --target_arch=arm`
 
 
